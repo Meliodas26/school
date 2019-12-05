@@ -1,0 +1,6 @@
+A:Tengo_hambre
+B:Tengo_sed
+C:Morire_de_hambre
+D:Entonces_Morire_de_sed
+E:Entonces_Morire_de_hambre_y_sed
+F:Entonces_No_morire
