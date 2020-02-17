@@ -1,13 +1,26 @@
-import javax.swing.JOptionPane;
-public class Run{
-    public static void main(String[] args){
- 		System.out.println("Hola mundo");
-		JOptionPane.showMessageDialog(null, "Hola mundo 2");   	
+import java.awt.image.BufferedImage;
 
-        Move move = new Move();
-        Panel panel = new Panel(move);
-        Frame frame = new Frame(move);
-        frame.add(panel);
-        panel.inicio();
+public class Run{
+    public static void main(String[] args){ 	
+        Tecla tecla = new Tecla(0);
+        Soundtrack soundtrack = new Soundtrack();
+        soundtrack.onEspera();
+        /*
+        	Se pasa por referencia el objeto tecla
+        	ya que en el Frame se tienen las funciones keylistener
+        	y de esta manera pueda tener un control de que teclas
+        	fueron presionadas por el usuario
+        */
+        Frame frame = new Frame(tecla);
+        
+
+        while(true){
+        	System.out.print("");
+        	if (tecla.flag) {
+        		System.out.println(tecla.accion);
+        		tecla.flag = false;
+        	}
+
+        }
     }
 }
