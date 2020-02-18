@@ -1,3 +1,5 @@
+package frame;
+
 public class Tecla{
 	public int accion = 0;
 	public boolean flag = false;

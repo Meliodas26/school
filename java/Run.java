@@ -1,5 +1,7 @@
-import java.awt.image.BufferedImage;
 import graficos.Graficos;
+import frame.Frame;
+
+import java.awt.image.BufferedImage;
 
 public class Run{
     public static void main(String[] args){

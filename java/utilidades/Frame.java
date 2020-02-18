@@ -1,3 +1,5 @@
+package frame;
+
 import java.awt.Color;
 import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
