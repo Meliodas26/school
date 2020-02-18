@@ -59,11 +59,7 @@ public class Panel extends JPanel {
         super.paintComponent(g);
         g2 = (Graphics2D)g;
         if(i==0){
-            System.out.println("Dibijando graficos:");
-            soundtrack.onEspera();
-            //Las imagenes de bifrost las creo junto cuando las dibujo ya que va en un ciclo
-            fondo = new BufferedImage(700,700, BufferedImage.TYPE_INT_ARGB);
-            logo = new BufferedImage(700,700, BufferedImage.TYPE_INT_ARGB);
+            
             escudo = new BufferedImage(41,39,BufferedImage.TYPE_INT_ARGB);
             mjolnir = new BufferedImage(23,39, BufferedImage.TYPE_INT_ARGB);
             spiderman = new BufferedImage(17,27, BufferedImage.TYPE_INT_ARGB);
@@ -75,15 +71,6 @@ public class Panel extends JPanel {
             asteroide = new BufferedImage(25,25, BufferedImage.TYPE_INT_ARGB);
             vida = new BufferedImage(100,10, BufferedImage.TYPE_INT_ARGB);
             
-            System.out.println("Fondo");
-            for (int linea=0; linea<700; linea++)
-                line(0,linea,700,linea,cs.negro);
-            fondo = bullet;
-            bullet = new BufferedImage(700,100, BufferedImage.TYPE_INT_ARGB);
-
-
-            bullet = new BufferedImage(700,700, BufferedImage.TYPE_INT_ARGB);
-
             System.out.println("Logo");
             logo();
             logo = bullet;

@@ -19,7 +19,9 @@ public class Run{
         Graficos graficos = new Graficos();
         
         frame.getGraphics().drawImage(graficos.getFondo(), 0, 0, frame);
+        frame.getGraphics().drawImage(graficos.getA(), 0, 37, frame);
         
+        /*
         while(true){
         	System.out.print("");
         	if (tecla.flag) {
@@ -28,5 +30,6 @@ public class Run{
         	}
 
         }
+        */
     }
 }

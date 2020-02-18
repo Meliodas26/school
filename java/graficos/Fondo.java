@@ -9,9 +9,8 @@ public class Fondo{
 	private BufferedImage iFondo = new BufferedImage(700,700, BufferedImage.TYPE_INT_ARGB);
 
     public Fondo(Line line, Colores c){
-    	System.out.println("Hola");
     	for(int i=0; i<700; i++)
-    		line.drawLine(i, 0, i, 700, c.azul, iFondo);
+    		line.drawLine(i, 0, i, 700, c.negro, iFondo);
     }
 
     public BufferedImage getFondo(){
