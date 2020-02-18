@@ -1,5 +1,5 @@
 import graficos.Graficos;
-import frame.Frame;
+import utilidades.*;
 
 import java.awt.image.BufferedImage;
 

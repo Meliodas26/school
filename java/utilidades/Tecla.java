@@ -1,4 +1,4 @@
-package frame;
+package utilidades;
 
 public class Tecla{
 	public int accion = 0;

@@ -1,4 +1,4 @@
-package frame;
+package utilidades;
 
 import java.awt.Color;
 import javax.swing.JFrame;
