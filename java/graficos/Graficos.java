@@ -1,6 +1,6 @@
 package graficos;
 
-import primitivas.Line;
+import primitivas.*;
 
 import java.awt.image.BufferedImage;
 
