@@ -1,6 +1,6 @@
 package graficos;
 
-import graficos.primitivas.Line;
+import graficos.primitivas.*;
 
 import java.awt.image.BufferedImage;
 
@@ -8,30 +8,34 @@ public class Graficos{
 
 	//Graficas primitivas
 	   private Line line = new Line();
+       private Pixel pixel = new Pixel();
 	
     //Graficos de fondo
         Fondo fondo;
+        A a;
 		
-        private BufferedImage iA, iEscudo, iMjolnir, iSpiderman, iRed, iThor;
-		private BufferedImage [] bifrost = new BufferedImage[8];
-		private BufferedImage [] estrellas = new BufferedImage[8];
+        //iEscudo, iMjolnir, iSpiderman, iRed, iThor;
+		//[] bifrost = new BufferedImage[8];
+		//[] estrellas = new BufferedImage[8];
 	
 	//Personaje
-		private BufferedImage iIronman, iPropulsoresM, iPropulsoresP, iVida;
+		//iIronman, iPropulsoresM, iPropulsoresP, iVida;
 	//Obstaculos
-		private BufferedImage iAsteroide;
+		//iAsteroide;
 
     public Graficos(){
-    	setFondo();
+    	fondo = new Fondo(line);
+        //a = new A();
     }
-
-    //Funciones set de graficos de fondo
-        public void setFondo(){
-            fondo = new Fondo(line);
-        }
 
     //Funciones get de graficos de fondo
         public BufferedImage getFondo(){
     	   return fondo.getFondo();
         }
+
+        /*
+        public BufferedImage setA(){
+            return a.getA();
+        }
+        */
 }

@@ -1,4 +1,5 @@
 package graficos;
+
 import graficos.primitivas.Line;
 
 import java.awt.image.BufferedImage;
@@ -9,7 +10,7 @@ public class Fondo{
 
     public Fondo(Line line){
     	for(int i=0; i<700; i++)
-    		line.drawLine(i, 0, i, 700, Color.blue, iFondo);
+    		line.drawLine(i, 0, i, 700, Color.black, iFondo);
     }
 
     public BufferedImage getFondo(){
