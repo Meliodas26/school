@@ -1,3 +1,4 @@
+//Dibuja una imagen de 700x700 negra para limpiar el frame
 package graficos;
 
 import graficos.primitivas.Line;

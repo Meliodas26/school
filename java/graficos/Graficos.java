@@ -1,3 +1,8 @@
+/*
+En esta clase se llaman todas las clases 
+de los graficos para dibujarlos en 
+buffered image
+*/
 package graficos;
 
 import graficos.primitivas.*;
