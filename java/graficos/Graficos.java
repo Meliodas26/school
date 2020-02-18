@@ -1,5 +1,7 @@
-import primitivasGraficas.Line;
 package graficos;
+
+import primitivas.Line;
+
 import java.awt.image.BufferedImage;
 
 public class Graficos{

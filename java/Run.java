@@ -1,4 +1,5 @@
 import java.awt.image.BufferedImage;
+import graficos.*;
 
 public class Run{
     public static void main(String[] args){
