@@ -1,4 +1,4 @@
-package primitivasGraficas;
+package graficos.primitivas;
 
 import java.awt.image.BufferedImage;
 import javax.swing.JPanel;

@@ -1,5 +1,5 @@
 package graficos;
-import primitivas.Line;
+import graficos.primitivas.Line;
 
 import java.awt.image.BufferedImage;
 import java.awt.Color; 

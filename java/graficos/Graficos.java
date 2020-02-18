@@ -1,13 +1,13 @@
 package graficos;
 
-import primitivas.*;
+import graficos.primitivas.Line;
 
 import java.awt.image.BufferedImage;
 
 public class Graficos{
 
 	//Graficas primitivas
-	private Line line = new Line();
+	   private Line line = new Line();
 	
     //Graficos de fondo
         Fondo fondo;

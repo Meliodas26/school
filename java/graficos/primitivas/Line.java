@@ -1,5 +1,4 @@
-package primitivas;
-
+package graficos.primitivas;
 import java.awt.image.BufferedImage;
 import java.awt.Color;
 import java.lang.Math;
