@@ -13,13 +13,9 @@ public class Run{
         	fueron presionadas por el usuario
         */
         Frame frame = new Frame(tecla);
-
-        //Graficos
-    	BufferedImage iFondo,bifrost;
-
-        iFondo = new BufferedImage(700,700, BufferedImage.TYPE_INT_ARGB);
-        Fondo fondo = new Fondo(iFondo,700);
-        frame.getGraphics().drawImage(iFondo, 0, 0, frame);
+        Graficos graficos = new Graficos();
+        
+        frame.getGraphics().drawImage(graficos.getFondo(), 0, 0, frame);
         
         while(true){
         	System.out.print("");

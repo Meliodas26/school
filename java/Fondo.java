@@ -4,12 +4,14 @@ import java.awt.image.BufferedImage;
 import java.awt.Color; 
 
 public class Fondo{
-    private Line line;
+	private BufferedImage iFondo = new BufferedImage(700,700, BufferedImage.TYPE_INT_ARGB);
 
-    public Fondo(BufferedImage image, int xy){
-    	line = new Line();
-    	
-    	for(int i=0; i<xy; i++)
-    		line.drawLine(i, 0, i, xy, Color.blue, image);
+    public Fondo(Line line){
+    	for(int i=0; i<700; i++)
+    		line.drawLine(i, 0, i, 700, Color.blue, iFondo);
+    }
+
+    public BufferedImage getFondo(){
+    	return iFondo;
     }
 }
