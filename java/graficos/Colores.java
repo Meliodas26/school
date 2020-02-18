@@ -1,6 +1,7 @@
+package graficos;
 import java.awt.Color;
 public class Colores{
-	public Color negro 	= Color.black;
+	public Color negro 		= Color.black;
 	public Color blanco 	= Color.white;
 	public Color rojo		= Color.red;
 	public Color azul 		= Color.blue;

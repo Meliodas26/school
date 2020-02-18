@@ -9,6 +9,9 @@ public class Graficos{
 	//Graficas primitivas
 	   private Line line = new Line();
        private Pixel pixel = new Pixel();
+    
+    //Para tener una paleta de colores mas amplia
+    private Colores c = new Colores();
 	
     //Graficos de fondo
         Fondo fondo;
@@ -24,7 +27,7 @@ public class Graficos{
 		//iAsteroide;
 
     public Graficos(){
-    	fondo = new Fondo(line);
+    	fondo = new Fondo(line, c);
         //a = new A();
     }
 

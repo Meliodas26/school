@@ -10,22 +10,23 @@ import java.util.Random;
 import java.util.ArrayList;  
 
 public class Panel extends JPanel {
-    private Soundtrack soundtrack   = new Soundtrack();
+    
     
     private javax.swing.Timer t;
-    private BufferedImage bullet = new BufferedImage(700,700, BufferedImage.TYPE_INT_ARGB);
-    private BufferedImage fondo, logo, escudo, mjolnir, spiderman, red, capitan, thor, ironman, propulsoresM;
-    private BufferedImage propulsoresP, fin, asteroide, vida;
+    
+    
     private BufferedImage [] bifrost = new BufferedImage[8];
     private BufferedImage [] estrellas = new BufferedImage[8];
     private int [][] px = new int[5][2000];
     private int [][] py = new int[5][2000];
-    private BufferedImage buffer;
-    private Graphics2D g2;
+    
+    
     private int i=0, cBifrost=0, aIronman=700, aPropulsoresP=700, aPropulsoresM=700, aSpiderman=125, cSpiderman=0;
     private int aEstrellas=0, aIronmanHorizontal=0, nAsteroide=1, nVida=100;
+    
     private ArrayList <Integer> aAsteroideX = new ArrayList <Integer>();
     private ArrayList <Integer> aAsteroideY = new ArrayList <Integer>();
+    
     private boolean flag=false, flagSpider=false, bfin=false, gameover=true;
     private Color c;
     private Colores cs = new Colores();
