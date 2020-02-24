@@ -1,15 +1,8 @@
-import java.awt.Graphics2D;
-import java.awt.Graphics;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
-
 import java.lang.Math;
 import java.util.Random;
 import java.util.ArrayList;  
 
-public class Panel extends JPanel {
+public class {
     
     
     private javax.swing.Timer t;
@@ -56,8 +49,6 @@ public class Panel extends JPanel {
     }
     
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g2 = (Graphics2D)g;
         if(i==0){
             
             escudo = new BufferedImage(41,39,BufferedImage.TYPE_INT_ARGB);
@@ -70,11 +61,6 @@ public class Panel extends JPanel {
             fin = new BufferedImage(200,200, BufferedImage.TYPE_INT_ARGB);;
             asteroide = new BufferedImage(25,25, BufferedImage.TYPE_INT_ARGB);
             vida = new BufferedImage(100,10, BufferedImage.TYPE_INT_ARGB);
-            
-            System.out.println("Logo");
-            logo();
-            logo = bullet;
-            bullet = new BufferedImage(700,700, BufferedImage.TYPE_INT_ARGB);
             
             
             System.out.println("Bifrost");
@@ -802,81 +788,5 @@ public class Panel extends JPanel {
             line(100-nVida, j, 100, j, cs.celeste);
         }
     }
-
-    public void line(float xi, float yi, int xf, int yf, Color c){
-        float b, m, dx, dy, xinc, yinc, step, rx, ry;
-        dy = (yf-yi);
-        dx = (xf-xi);
-        drawPixel((int)xi, (int)yi, c);
-        rx = Math.abs(dx);
-        ry = Math.abs(dy);
-        if(rx>ry)
-            step = rx;
-        else
-            step = ry;
-        xinc = dx/step;
-        yinc = dy/step;
-        for (int i=1; i<step; i++) {
-            xi+=xinc;
-            yi+=yinc;
-            drawPixel(Math.round(xi), Math.round(yi), c);
-        }
-    }
     
-    public void lineThickness(int xi, int yi, int xf, int yf, int grosor, Color c){
-        boolean impar;
-        if((grosor%2) == 0)
-            impar = false;
-        else
-            impar = true;
-
-        int repeticiones = grosor/2;
-        line(xi, yi, xf, yf, c);
-        float dy = yi-yf;
-        if(Math.abs(dy) == 0){
-            for (int i=1; i<=repeticiones; i++) {
-                line(xi, yi+i, xf, yf+i, c);
-                line(xi, yi-i, xf, yf-i, c);
-            }
-            if(impar){
-                repeticiones+=1;
-                line(xi, yi+repeticiones, xf, yf+repeticiones, c);
-            }
-        }
-
-        float dx = xi-xf;
-        if(dy != 0){
-            for (int i=1; i<=repeticiones; i++) {
-                line(xi+i, yi, xf+i, yf, c);
-                line(xi-i, yi, xf-i, yf, c);
-            }
-            if(impar){
-                repeticiones+=1;
-                line(xi+repeticiones, yi, xf+repeticiones, yf, c);
-            }
-        }
-    }
-
-    public void circleThickness(int xc, int yc, int r, int grosor, Color c){
-        double inc = Math.asin(1.0/r);
-        double grados = 0;
-        int x, y;
-        int y1, y2, y3, x1, x2, x3;
-        int grosorc = grosor;
-        while(grados <= 2*Math.PI){
-            x = xc + (int)(r * Math.sin(grados));
-            y = yc + (int)(r * Math.cos(grados));
-            drawPixel(x, y, c);
-            for (int j = 1; j <= grosor; j++)
-                drawPixel(x, y + j, c);
-            for (int j = 1; j <= grosor; j++)
-                drawPixel(x, y - j, c);
-            for (int j = 1; j <= grosor; j++)
-                  drawPixel(x + j, y, c);
-            for (int j = 1; j <= grosor; j++)
-                drawPixel(x - j, y, c);
-            grados += inc;
-        }
-    }
-
 }

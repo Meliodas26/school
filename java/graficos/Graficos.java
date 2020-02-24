@@ -14,6 +14,7 @@ public class Graficos{
 	//Graficas primitivas
         private Pixel pixel = new Pixel();
 	    private Line line = new Line();
+        private Circle circle = new Circle();
     
     //Para tener una paleta de colores mas amplia
         private Colores c = new Colores();
@@ -21,7 +22,8 @@ public class Graficos{
     //Graficos de fondo
         Fondo fondo;
         A a;
-        //iEscudo, iMjolnir, iSpiderman, iRed, iThor;
+        Escudo escudo;
+        //iMjolnir, iSpiderman, iRed, iThor;
 		//[] bifrost = new BufferedImage[8];
 		//[] estrellas = new BufferedImage[8];
 	
@@ -31,9 +33,8 @@ public class Graficos{
 		//iAsteroide;
 
     public Graficos(){
-    	fondo = new Fondo(line, c);
-        
-        a = new A(line,c);
+    	fondo = new Fondo(pixel, line, c);
+        a = new A(pixel, line, circle, c);
     }
 
     //Funciones get de graficos de fondo
