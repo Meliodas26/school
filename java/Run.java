@@ -20,7 +20,8 @@ public class Run{
         
         frame.getGraphics().drawImage(graficos.getFondo(), 0, 0, frame);
         frame.getGraphics().drawImage(graficos.getA(), 0, 37, frame);
-        
+        frame.getGraphics().drawImage(graficos.getMjolnir(), 150, 225, frame);
+        frame.getGraphics().drawImage(graficos.getSpiderman(), 192, 160, frame);
         /*
         while(true){
         	System.out.print("");

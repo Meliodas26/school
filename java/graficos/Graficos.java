@@ -22,8 +22,10 @@ public class Graficos{
     //Graficos de fondo
         Fondo fondo;
         A a;
-        Escudo escudo;
-        //iMjolnir, iSpiderman, iRed, iThor;
+        //Escudo escudo;
+        Mjolnir mjolnir;
+        Spiderman spiderman;
+        //iRed, iThor;
 		//[] bifrost = new BufferedImage[8];
 		//[] estrellas = new BufferedImage[8];
 	
@@ -33,8 +35,10 @@ public class Graficos{
 		//iAsteroide;
 
     public Graficos(){
-    	fondo = new Fondo(pixel, line, c);
-        a = new A(pixel, line, circle, c);
+    	fondo       = new Fondo         (pixel, line, c);
+        a           = new A             (pixel, line, circle, c);
+        mjolnir     = new Mjolnir       (pixel, line, c);
+        spiderman   = new Spiderman     (pixel, line, c);
     }
 
     //Funciones get de graficos de fondo
@@ -45,6 +49,14 @@ public class Graficos{
         
         public BufferedImage getA(){
             return a.getA();
+        }
+
+        public BufferedImage getMjolnir(){
+            return mjolnir.getMjolnir();
+        }
+
+        public BufferedImage getSpiderman(){
+            return spiderman.getSpiderman();
         }
         
 }

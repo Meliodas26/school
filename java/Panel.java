@@ -51,9 +51,6 @@ public class {
     public void paintComponent(Graphics g) {
         if(i==0){
             
-            escudo = new BufferedImage(41,39,BufferedImage.TYPE_INT_ARGB);
-            mjolnir = new BufferedImage(23,39, BufferedImage.TYPE_INT_ARGB);
-            spiderman = new BufferedImage(17,27, BufferedImage.TYPE_INT_ARGB);
             red = new BufferedImage(1,400, BufferedImage.TYPE_INT_ARGB);
             ironman = new BufferedImage(16,23, BufferedImage.TYPE_INT_ARGB);
             propulsoresP = new BufferedImage(3,2, BufferedImage.TYPE_INT_ARGB);
@@ -80,27 +77,7 @@ public class {
             bullet = new BufferedImage(700,700, BufferedImage.TYPE_INT_ARGB);
             estrellas[0] = bullet;
             puntos();
-            bullet = new BufferedImage(41,39,BufferedImage.TYPE_INT_ARGB);
 
-            System.out.println("Escudo");
-            escudo();
-            escudo = bullet;
-            bullet = new BufferedImage(23,39,BufferedImage.TYPE_INT_ARGB);
-
-            System.out.println("Mjolnir");
-            mjolnir();
-            mjolnir = bullet;
-            bullet = new BufferedImage(1,400,BufferedImage.TYPE_INT_ARGB); 
-
-            System.out.println("Red");
-            line(0,0,0,25,cs.blanco);
-            red = bullet;
-            bullet = new BufferedImage(17,27,BufferedImage.TYPE_INT_ARGB);
-
-            System.out.println("Spiderman");
-            spiderman();
-            spiderman = bullet;
-            bullet = new BufferedImage(16,23,BufferedImage.TYPE_INT_ARGB);
 
             System.out.println("Iron man");
             ironman();
@@ -326,19 +303,7 @@ public class {
         i++;
     }
 
-    public void drawPixel(int x, int y, Color c) {
-        buffer.setRGB(0, 0, c.getRGB());
-        bullet.getGraphics().drawImage(buffer, x, y, this);
-    }
 
-
-    public void logo(){
-        c = cs.blanco;
-        circleThickness (325, 300, 225, 010, c);
-        lineThickness   (150, 550, 400, 050, 20, c);
-        lineThickness   (400, 050, 400, 450, 20, c);
-        lineThickness   (235, 375, 375, 375, 20, c);
-    }
 
     public void bifrost(){
         Color [] cBifrost = {cs.azul, cs.rojo, cs.amarillo, cs.violeta, cs.celeste,
@@ -443,129 +408,7 @@ public class {
         py = new int[1][1];
     }
 
-    public void escudo(){
-        //13 pixeles de escudo, 14 left,right
-        //13 escudo 13 up,down
-        //1ro
-        exi=14; eyi=0; epixeles=12;
-        exf=exi+epixeles;
-        line(exi, eyi, exf, eyi, cs.rojo);
-        pixeles(3, 4, cs.rojo);
-        pixeles(3, 2, cs.rojo);
-        pixeles(1,cs.rojo);
-        pixeles(1, 2, cs.rojo);
-        pixeles(1, 2, cs.rojo);
-        pixeles(1,cs.rojo);
-        pixeles(1, 2, cs.rojo);
-        pixeles(2,cs.rojo);
-        pixeles(1, 2, cs.rojo);
-        pixeles(11,cs.rojo);
-        //2do
-        exi=15; eyi=4; epixeles=10;
-        exf=exi+epixeles;
-        line(exi, eyi, exf, eyi, cs.rojo);
-        pixeles(2,4,cs.blanco);
-        pixeles(3,2,cs.blanco);
-        pixeles(1,2,cs.blanco);
-        pixeles(1,cs.blanco);
-        pixeles(1,2,cs.blanco);
-        pixeles(1,cs.blanco);
-        pixeles(10,cs.blanco);
-        //3ro
-        exi=16; eyi=8; epixeles=8;
-        exf=exi+epixeles;
-        line(exi, eyi, exf, eyi, cs.rojo);
-        for (int i=0; i<3; i++) {
-            pixeles(1,4,cs.rojo);
-            pixeles(1,cs.rojo);
-        }
-        pixeles(1,2,cs.rojo);
-        pixeles(8,cs.rojo);
-        
-
-
-        //Inverso
-        exi=14; eyi=39; epixeles=12;
-        exf=exi+epixeles;
-        line(exi, eyi, exf, eyi, cs.rojo);
-        pixelesAbajo(3, 4, cs.rojo);
-        pixelesAbajo(3, 2, cs.rojo);
-        pixelesAbajo(1,cs.rojo);
-        pixelesAbajo(1, 2, cs.rojo);
-        pixelesAbajo(1, 2, cs.rojo);
-        pixelesAbajo(1,cs.rojo);
-        pixelesAbajo(1, 2, cs.rojo);
-        pixelesAbajo(2,cs.rojo);
-        pixelesAbajo(1, 2, cs.rojo);
-        pixelesAbajo(1,cs.rojo);
-        //2do
-        exi=15; eyi=35; epixeles=10;
-        exf=exi+epixeles;
-        line(exi, eyi, exf, eyi, cs.rojo);
-        pixelesAbajo(2,4,cs.blanco);
-        pixelesAbajo(3,2,cs.blanco);
-        pixelesAbajo(1,2,cs.blanco);
-        pixelesAbajo(1,cs.blanco);
-        pixelesAbajo(1,2,cs.blanco);
-        pixelesAbajo(1,cs.blanco);
-        pixelesAbajo(10,cs.blanco);
-        //3ro
-        exi=16; eyi=31; epixeles=8;
-        exf=exi+epixeles;
-        line(exi, eyi, exf, eyi, cs.rojo);
-        for (int i=0; i<3; i++) {
-            pixelesAbajo(1,4,cs.rojo);
-            pixelesAbajo(1,cs.rojo);
-        }
-        pixelesAbajo(1,2,cs.rojo);
-        pixelesAbajo(8,cs.rojo);
-
-        //Azul
-        line(17, 12, 24, 12, cs.azul);
-        line(16, 13, 25, 13, cs.azul);
-        line(15, 14, 26, 14, cs.azul);
-        line(14, 15, 27, 15, cs.azul);
-        line(13, 16, 28, 16, cs.azul);
-        line(12, 17, 29, 17, cs.azul);
-        line(12, 18, 29, 18, cs.azul);
-        line(12, 19, 29, 19, cs.azul);
-        line(12, 20, 29, 20, cs.azul);
-        line(12, 21, 29, 21, cs.azul);
-        line(12, 22, 29, 22, cs.azul);
-        line(12, 23, 29, 23, cs.azul);
-        line(13, 24, 28, 24, cs.azul);
-        line(14, 25, 27, 25, cs.azul);
-        line(15, 26, 26, 26, cs.azul);
-        line(16, 27, 25, 27, cs.azul);
-        line(17, 28, 24, 28, cs.azul);
-
-        //Estrellas
-        drawPixel(20,13,cs.blanco);
-        drawPixel(20,14,cs.blanco);
-        exi=19; eyi=15; epixeles=3;
-        exf=exi+epixeles;
-        line(exi, eyi, exf, eyi, cs.blanco);
-        pixeles(1,cs.blanco);
-        pixeles(1,8,cs.blanco);
-        exi++;
-        eyi++;
-        line(exi, eyi, exi+9, eyi, cs.blanco);
-        exi++;
-        eyi++;
-        line(exi, eyi, exi+7, eyi, cs.blanco);
-        exi++;
-        eyi++;
-        line(exi, eyi, exi+5, eyi, cs.blanco);
-        exi--;
-        eyi++;
-        line(exi, eyi, exi+7, eyi, cs.blanco);
-        exi--;
-        eyi++;
-        line(exi, eyi, exi+8, eyi, cs.blanco);
-        line(16,23,25,23,cs.blanco);
-        line(15,24,18,24,cs.blanco); line(23,24,26,24,cs.blanco);
-        drawPixel(15, 25,cs.blanco); drawPixel(25,25,cs.blanco);
-    }
+    
 
     public void pixeles(int i, int p, Color c){
         int dx = p/2;
@@ -611,87 +454,7 @@ public class {
         }
     }
 
-    public void mjolnir(){
-        //Inicia en 0
-        //22x, 39y
-        line(9,0,15,0,cs.gris);
-        line(2,1,21,1,cs.gris);
-        drawPixel(1,2,cs.gris); drawPixel(21,2,cs.gris);
-        line(0,2,0,11,cs.gris);
-        line(22,2,22,11,cs.gris);
-        line(2,12,21,12,cs.gris);
-        
     
-        line(2,2,21,2,cs.plata);
-        exi=1; eyi=2; epixeles=21;
-        exf=exi+epixeles;
-        pixeles(9,cs.plata);
-        drawPixel(1,11,cs.gris); drawPixel(21,11,cs.gris);
-        line(8,10,15,10,cs.gris);
-        line(3,11,8,11,cs.gris);
-        line(16,11,21,11,cs.gris);
-        for (int i=0; i<17; i++)
-            line(10,13+i,15,13+i,cs.cafe);
-        drawPixel(10,14,cs.negro); drawPixel(14,14,cs.negro);
-        //line(11,15,12,15,cs.negro);
-    }
-
-    public void spiderman(){
-        //16x 26y
-        line(8,0,8,9,cs.blanco);
-        drawPixel(7,0,cs.rojo); drawPixel(9,0,cs.rojo);
-        line(6,1,8,1,cs.rojo);  line(9,1,11,1,cs.rojo);
-        line(5,2,8,2,cs.rojo);  line(9,2,12,2,cs.rojo);
-        line(4,3,8,3,cs.rojo);  line(9,3,13,3,cs.rojo);
-        line(3,4,6,4,cs.rojo);  line(11,4,14,4,cs.rojo);
-        
-        drawPixel(2,4,cs.azul); drawPixel(14,4,cs.azul);
-        drawPixel(4,5,cs.rojo); drawPixel(12,5,cs.rojo);
-        line(1,5,3,5,cs.azul);  line(13,5,16,5,cs.azul);
-        
-        line(0,6,4,6,cs.azul);  line(13,6,17,6,cs.azul);
-        line(0,7,3,7,cs.azul);  line(14,7,17,7,cs.azul);
-
-        line(5,7,8,7,cs.rojo);  line(10,7,13,7,cs.rojo);
-        line(4,8,8,8,cs.rojo);  line(10,8,14,8,cs.rojo);
-        drawPixel(7,7,cs.blanco); drawPixel(9,7,cs.blanco);
-        
-        drawPixel(3,9,cs.rojo);    drawPixel(4,9,cs.rojo);    drawPixel(5,9,cs.azul);
-        drawPixel(12,9,cs.rojo);   drawPixel(13,9,cs.rojo);   drawPixel(11,9,cs.azul);
-        
-        drawPixel(2,10,cs.rojo);    drawPixel(3,10,cs.rojo);    drawPixel(4,10,cs.azul);
-        drawPixel(13,10,cs.rojo);   drawPixel(14,10,cs.rojo);   drawPixel(12,10,cs.azul);
-        
-        drawPixel(2,11,cs.rojo);    drawPixel(3,11,cs.rojo);    drawPixel(5,11,cs.azul);
-        drawPixel(13,11,cs.rojo);   drawPixel(14,11,cs.rojo);   drawPixel(11,11,cs.azul);
-        
-        drawPixel(8,9,cs.rojo);
-        
-        line(7,10,10,10,cs.rojo);
-        drawPixel(6,11,cs.rojo);    drawPixel(7,11,cs.rojo); drawPixel(9,11,cs.rojo);    drawPixel(10,11,cs.rojo);
-        line(3,12,14,12,cs.rojo);
-        drawPixel(6,13,cs.rojo);    drawPixel(5,13,cs.rojo); drawPixel(11,13,cs.rojo);    drawPixel(10,13,cs.rojo);
-
-        //Cabeza
-        line(7,14,10,14,cs.rojo);
-        line(5,15,12,15,cs.rojo);
-        line(4,16,13,16,cs.rojo);
-        line(3,17,14,17,cs.rojo);
-        line(3,18,3,24,cs.rojo);
-        line(13,18,13,24,cs.rojo);
-
-        drawPixel(4,18,cs.rojo); drawPixel(12,18,cs.rojo);
-        line(7,18,10,18,cs.rojo);
-        drawPixel(8,19,cs.rojo);
-        line(7,20,10,20,cs.rojo);
-        line(6,21,11,21,cs.rojo);
-        line(5,22,12,22,cs.rojo);
-        line(4,23,13,23,cs.rojo);
-        drawPixel(6,19,cs.blanco); drawPixel(5,19,cs.blanco); drawPixel(5,20,cs.blanco);
-        drawPixel(10,19,cs.blanco); drawPixel(11,19,cs.blanco); drawPixel(11,20,cs.blanco);
-        line(4,24,13,24,cs.rojo);
-        line(6,25,11,25,cs.rojo);
-    }
 
     public void ironman(){
         line(6,0,9,0,cs.rojo);
