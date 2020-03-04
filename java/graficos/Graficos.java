@@ -19,18 +19,19 @@ public class Graficos{
     //Para tener una paleta de colores mas amplia
         private Colores c = new Colores();
 	
+    //Animacion de un inicio
+    //[] bifrost = new BufferedImage[8];
     //Graficos de fondo
         Fondo fondo;
         A a;
         //Escudo escudo;
         Mjolnir mjolnir;
-        Spiderman spiderman;
-        //iRed, iThor;
-		//[] bifrost = new BufferedImage[8];
-		//[] estrellas = new BufferedImage[8];
+        Spiderman spiderman; //iRed;
+        
+        //[] estrellas = new BufferedImage[8];
 	
 	//Personaje
-		//iIronman, iPropulsoresM, iPropulsoresP, iVida;
+		Ironman ironman; //iIronman iPropulsoresM, iPropulsoresP, iVida;
 	//Obstaculos
 		//iAsteroide;
 
