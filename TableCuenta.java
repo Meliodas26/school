@@ -39,14 +39,25 @@ public class TableCuenta{
   }
 
   public void putData(Cuenta cuenta){
-    int nAccount = table.getRowCount();
-    for (int i=nAccount-1; i>=0; i--)
-      model.removeRow(i);
-
+    clearTable();
     for(int i=0; i<cuenta.nCuenta; i++)
       model.addRow(new String [] {
         cuenta.id[i]+"",cuenta.name[i],cuenta.saldo[i]+""
       });
+  }
+
+  public void putDataOrdenadamente(int accounts, Temporal temporal){
+    clearTable();
+    for(int i=0; i<accounts; i++)
+      model.addRow(new String [] {
+        temporal.id[i]+"",temporal.name[i],temporal.saldo[i]+""
+      });
+  }
+
+  public void clearTable(){
+    int nAccount = table.getRowCount();
+    for (int i=nAccount-1; i>=0; i--)
+      model.removeRow(i);
   }
 
 }

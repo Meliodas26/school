@@ -12,17 +12,22 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Frame extends JFrame implements ActionListener{
-	static int nucleos, threads, accounts = 1000000;
+	static int nucleos, threads, accounts = 100000;
+	static Cuenta cuenta;
 
-	JPanel header,right;
-	JScrollPane left;
-	JLabel title,subTitle,nNucleo,recomendacion, nThread, nAccount;
-	JButton consultar,secuencial,concurrente, addThread, rmThread, addAccount, rmAccount;
+	static JPanel header,right;
+	static JScrollPane left;
+	static JLabel title,subTitle,nNucleo,recomendacion, nThread, nAccount;
+	static JButton consultar,secuencial,concurrente, addThread, rmThread, addAccount, rmAccount;
 
-	TableCuenta tableCuenta;
-	Cuenta cuenta;
+	static TableCuenta tableCuenta;
+	static TableComparacion tableComparacion;
 
-	TableComparacion tableComparacion;
+	//Ordenamientos
+	static PosicionCorrecta_Secuencial oSecuencial;
+
+	static Temporal temporal;
+
 
 	public static void main(String[] args) {
 		//Conseguir informacion del hardware(equipo)
@@ -33,6 +38,9 @@ public class Frame extends JFrame implements ActionListener{
 
 		//Creacion de la interfaz rafica
 		Frame frame = new Frame();
+
+		cuenta = new Cuenta(accounts);
+
 	}
 
 	public Frame(){
@@ -46,7 +54,6 @@ public class Frame extends JFrame implements ActionListener{
 		concurrente.addActionListener(this);
 
 		tableCuenta = new TableCuenta();
-    	cuenta = new Cuenta(accounts);
 		left = new JScrollPane(tableCuenta.getTable());
 		left.setBounds(0,100,420,600);
 		left.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -77,6 +84,12 @@ public class Frame extends JFrame implements ActionListener{
   	public void actionPerformed(ActionEvent e) {
   		if (e.getSource() == consultar){
   			tableCuenta.putData(cuenta);
+  		}
+
+  		if (e.getSource() == secuencial){
+  			temporal = new Temporal(cuenta.nCuenta);
+  			oSecuencial = new PosicionCorrecta_Secuencial(cuenta, temporal);
+  			tableCuenta.putDataOrdenadamente(cuenta.nCuenta,temporal);
   		}
 
   		if(e.getSource() == addThread){
