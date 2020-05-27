@@ -22,10 +22,10 @@ public class TableComparacion{
       "Tipo","Tiempo"+""
     });
     model.addRow(new String [] {
-      "Secuencial","0"+""
+      "Secuencial",null
     });
     model.addRow(new String [] {
-      "Concurrente","0"+""
+      "Concurrente",null
     });
 
     table = new JTable(model);
@@ -43,11 +43,11 @@ public class TableComparacion{
     return table;
   }
 
-  public void putData(int metodo, int duracion){
-    if(metodo == 1)
-      table.setValueAt(duracion, 0, 1);
+  public void putTime(int type, double time){
+    if(type == 1)
+      table.setValueAt(time+"", type, 1);
     else
-      table.setValueAt(duracion, 1, 1);
+      table.setValueAt(time+"", type, 1);
   } 
 
 }

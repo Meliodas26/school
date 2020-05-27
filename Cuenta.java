@@ -16,7 +16,7 @@ public class Cuenta{
 		for (int i = 0; i<nCuenta; i++){
 			id[i] = i+1;
 			name[i] = crearNombre();
-			saldo[i] = r.nextInt(1000000000)+1;
+			saldo[i] = r.nextInt(10000)+100;
 		}
 	}
 

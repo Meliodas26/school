@@ -1,16 +1,18 @@
-public class PosicionCorrecta_Secuencial{
+public class PosicionCorrecta_Concurrente extends Thread{
 	Cuenta cuenta;
 	Temporal temporal;
-	int posicion;
+	int posicion, begin, end;
 
-	public PosicionCorrecta_Secuencial(Cuenta cuenta, Temporal temporal){
+	public PosicionCorrecta_Concurrente(Cuenta cuenta, Temporal temporal, int begin, int end){
 		this.cuenta = cuenta;
 		this.temporal = temporal;
-		ordenar();
+		this.begin = begin;
+		this.end = end;
 	}
 
-	public void ordenar(){
-		for (int i=0; i<cuenta.nCuenta; i++) {
+	public void run(){
+		for (int i=begin; i<end; i++) {
+
 			posicion = 0;
 			for (int j=0; j<cuenta.nCuenta; j++) {
 				if(i != j){
@@ -27,5 +29,4 @@ public class PosicionCorrecta_Secuencial{
 			temporal.empty[posicion] = false;
 		}
 	}
-
 }

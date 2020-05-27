@@ -18,4 +18,8 @@ public class Temporal{
 			empty[i] = true;
 		}
 	}
+
+	public void clearTemporal(){
+
+	}
 }

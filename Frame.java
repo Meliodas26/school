@@ -12,7 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Frame extends JFrame implements ActionListener{
-	static int nucleos, threads, accounts = 100000;
+	//Maximo secuencial accounts = 100000;
+	static int nucleos, threads, accounts = 10000;
 	static Cuenta cuenta;
 
 	static JPanel header,right;
@@ -25,8 +26,13 @@ public class Frame extends JFrame implements ActionListener{
 
 	//Ordenamientos
 	static PosicionCorrecta_Secuencial oSecuencial;
+	static PosicionCorrecta_Concurrente[] oConcurrente;
 
 	static Temporal temporal;
+	//Secuencial
+	long begin, end;
+	double time;
+			
 
 
 	public static void main(String[] args) {
@@ -34,7 +40,7 @@ public class Frame extends JFrame implements ActionListener{
 		Runtime hardware = Runtime.getRuntime();
 		//Numero de nucleros
 		nucleos = hardware.availableProcessors();
-		threads = nucleos;
+		threads = nucleos*10;
 
 		//Creacion de la interfaz rafica
 		Frame frame = new Frame();
@@ -87,9 +93,58 @@ public class Frame extends JFrame implements ActionListener{
   		}
 
   		if (e.getSource() == secuencial){
+  			begin = System.currentTimeMillis();
   			temporal = new Temporal(cuenta.nCuenta);
   			oSecuencial = new PosicionCorrecta_Secuencial(cuenta, temporal);
+  			end = System.currentTimeMillis();
+  			time = (end - begin);
   			tableCuenta.putDataOrdenadamente(cuenta.nCuenta,temporal);
+  			tableComparacion.putTime(1,time);
+  		}
+
+  		if (e.getSource() == concurrente){
+
+  			begin = System.currentTimeMillis();
+  			temporal = new Temporal(cuenta.nCuenta);
+  			
+  			oConcurrente = new PosicionCorrecta_Concurrente[threads];
+  			
+  			int tasksThread,beginThread,endThread=0;
+  			beginThread = 0;
+  			tasksThread = accounts/threads;
+  			
+  			if((accounts%threads) == 0){
+  				endThread = tasksThread;
+  				for (int i=0; i<threads; i++) {
+  					oConcurrente[i] = new PosicionCorrecta_Concurrente(cuenta, temporal, beginThread,endThread);
+  					oConcurrente[i].start();	
+  					beginThread = endThread;
+  					endThread += tasksThread;
+  				}
+  			}else{
+  				int pTasksThread = accounts%threads;
+  				for (int i=0; i<threads; i++) {
+  					if(pTasksThread>0){
+  						endThread += (tasksThread+1);	
+  						pTasksThread--;
+  					}
+  					else
+  						endThread += tasksThread;
+  					oConcurrente[i] = new PosicionCorrecta_Concurrente(cuenta, temporal, beginThread,endThread);
+  					oConcurrente[i].start();	
+  					beginThread = endThread;
+  				}
+  			}
+
+  			try{
+				for (int i=0; i<threads; i++)
+					oConcurrente[i].join();
+			}catch(Exception ex){}
+
+  			end = System.currentTimeMillis();
+  			time = (end - begin);
+  			tableCuenta.putDataOrdenadamente(cuenta.nCuenta,temporal);
+  			tableComparacion.putTime(2,time);
   		}
 
   		if(e.getSource() == addThread){
@@ -112,7 +167,7 @@ public class Frame extends JFrame implements ActionListener{
   	}
 
   	public void initHeader(){
-  		title = new JLabel("Ordenamiento de cuentas bancarias", JLabel.CENTER);
+  		title = new JLabel("Ordenamiento de saldos", JLabel.CENTER);
 		title.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
 		
 		subTitle = new JLabel("Secuencial vs Concurrente", JLabel.CENTER);
@@ -144,7 +199,7 @@ public class Frame extends JFrame implements ActionListener{
 		nNucleo = new JLabel("Su equipo tiene: "+nucleos+" nucleos", JLabel.CENTER);
 		nNucleo.setFont(new Font("DejaVu Sans", 1, 10));	
 		
-		recomendacion = new JLabel("Se recomienda un hilo por nucleo", JLabel.CENTER);
+		recomendacion = new JLabel("Se recomienda 10 hilos por nucleo", JLabel.CENTER);
 		recomendacion.setFont(new Font("DejaVu Sans", 1, 10));	
 
 		addThread = new JButton("+");
@@ -154,7 +209,7 @@ public class Frame extends JFrame implements ActionListener{
 		rmThread.setBackground(Color.red);
 		
 		nThread = new JLabel("Threads: "+threads, JLabel.CENTER);
-		nThread.setFont(new Font("DejaVu Sans", 1, 16));
+		nThread.setFont(new Font("DejaVu Sans", 1, 14));
 
 		addAccount = new JButton("+");
 		addAccount.setBackground(Color.green);
